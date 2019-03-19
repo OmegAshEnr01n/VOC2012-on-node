@@ -1,0 +1,92 @@
+
+@font-face{
+    font-family: RobotoCondensed;
+    src: url('fonts/RobotoCondensed-Bold.ttf');
+    font-weight: bold;
+}
+@font-face{
+    font-family: RobotoCondensed;
+    src: url('fonts/RobotoCondensed-Regular.ttf');
+    font-weight: normal;
+}
+
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.fancy-back{
+    background-image: url("images/canyon.jpg");
+    position: absolute;
+
+    width: 100%;
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    transform: scale(1.1);
+    /* Full height */
+    height: 1080px; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.back{
+    position: relative;
+}
+.select-box{
+    margin-top: 40%;
+    height: 10rem;
+    background: #ffffff61;
+    border: 2px solid #8bb9f361;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 4% 10%;
+}
+
+.form-control.single{
+    display: inline-block;
+    width: 70%;
+}
+button.single{
+    display: inline-block;
+    margin-bottom: 6px;
+}
+.single{
+    font-family: RobotoCondensed;
+    font-size: 25px;
+}
+
+.double-btn{
+    font-family: RobotoCondensed;
+    font-size: 35px;
+    margin-left: 5%;
+    font-weight: normal;
+    margin-right: 5%;
+}
+.double-btn a{
+    color: aliceblue;
+
+}
+
+.select-box.double-btn{
+    display: inline-flex;
+    /* display: flex; */
+    justify-content: center;
+}
+
+.upload{
+    display: inline;
+    float: left;
+}
+.upload.w85{
+    width: 85%;
+}
+button.upload{
+    font-size: 27px;
+    margin: 5px 0 0 2px;
+
+}

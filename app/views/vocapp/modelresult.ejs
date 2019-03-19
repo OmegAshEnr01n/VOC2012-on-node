@@ -1,0 +1,23 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script>
+$(function(){
+    console.log('here');
+    var socket = io();
+    socket.on('connect', function(data) {
+        socket.emit('joined', 'Hello World from client');
+    });
+    socket.on('acknowledge', function(data) {
+        console.log(data);
+    });
+});
+</script>
+
+<div class="back">
+        <div class="fancy-back"></div>
+        <div class="container">
+            <div class="select-box">
+
+    
+            </div>
+        </div>
+    </div>
