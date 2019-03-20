@@ -1,23 +1,46 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 <script>
-$(function(){
-    console.log('here');
-    var socket = io();
-    socket.on('connect', function(data) {
-        socket.emit('joined', 'Hello World from client');
+    $(function () {
+        console.log('here');
+        var socket = io();
+        socket.on('connect', function (data) {
+            socket.emit('joined', 'Hello World from client');
+        });
+        socket.on('acknowledge', function (data) {
+            console.log(data);
+        });
+        socket.on('getdata', function (data) {
+            var i = 0;
+            for (var key in data){
+                $('#data-1-'+i).text(key );
+                $('#data-2-'+i).text(String(parseFloat(data[key])*100 )+' %');
+                i += 1;
+            }
+        });
     });
-    socket.on('acknowledge', function(data) {
-        console.log(data);
-    });
-});
 </script>
 
 <div class="back">
-        <div class="fancy-back"></div>
-        <div class="container">
-            <div class="select-box">
+    <div class="fancy-back"></div>
+    <div class="container">
+        <div class="select-box l">
 
-    
+            <div class="boxed">
+                <% for (var i = 0; i < 20; i ++) { %>
+                <div class="row">
+                    <div class="col-sm" id="data-1-<%= i %>">
+
+                    </div>
+                    <div class="col-sm" id="data-2-<%= i %>">
+                        
+                        </div>
+                </div>
+                <% } %>
             </div>
         </div>
+        <div class="image-box">
+            <img src="<%- image %>">
+
+        </div>
     </div>
+</div>

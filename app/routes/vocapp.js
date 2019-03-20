@@ -10,6 +10,9 @@ var storage = multer.diskStorage({
 var upload = multer({
     storage: storage
 });
+var shell = require('shelljs');
+var fs = require('fs');
+var base64Img = require('base64-img');
 // I had problems with getting multer working. remeber to add name tag to anything that you need in the html.
 
 
@@ -56,7 +59,8 @@ router
             if(temp.fieldname != 'data'){
                 res.redirect('/');
             } else {
-                res.redirect('/vocapp/modelresult');
+                shell.exec('python '+path.join(__dirname,'..','py','test.py')+' '+ path.join(__dirname,'..','py','Model2.pt')+' '+path.join(__dirname,'..','public','files',temp.filename))
+                res.redirect('/vocapp/modelresult?file='+temp.filename);
             }
         }
     )
@@ -66,20 +70,34 @@ router.get(
     checkWD,
     async function(req, res, next){
         var io = req.app.get('socketio');
-        var e = {};
-        e.num = 20;
-        e.temp = 'temp';
         io.on('connection',function(socket){
             socket.on('joined', function(data) {
-                console.log(data);
-                socket.emit('acknowledge', e);
+                socket.emit('acknowledge', 'done');
             });
             
+            var f = path.join(__dirname,'..','public','files',req.query.file+'_res.txt');
+            snd = {};
+            console.log(f);
+            fs.readFile(f, function(err, data){
+                
+                var lines=String(data).split('\n');
+                lines.forEach(function(e){
+                    var c = e.split(' ');
+                    snd[c[0]] = c[1];
+                });
+                socket.emit('getdata',snd);
+            });
+            
+            
+            
         });
-        
-        res.render('vocapp/modelresult.ejs',{
-            layout: 'vocapp.ejs' 
-         });
+        var image = base64Img.base64Sync(path.join(__dirname,'..','public','files',req.query.file));
+
+                    res.render('vocapp/modelresult.ejs',{
+                        layout: 'vocapp.ejs',
+                        image:  image
+                    });
+                   
         
     }
 );

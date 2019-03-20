@@ -38,13 +38,16 @@ html, body{
 }
 .select-box{
     margin-top: 40%;
-    height: 10rem;
+    min-height: 10rem;
     background: #ffffff61;
     border: 2px solid #8bb9f361;
     display: inline-block;
     position: relative;
     width: 100%;
     padding: 4% 10%;
+}
+.select-box.l{
+    margin-top: 10%;
 }
 
 .form-control.single{
@@ -89,4 +92,22 @@ button.upload{
     font-size: 27px;
     margin: 5px 0 0 2px;
 
+}
+
+.image-box{
+    width: 500px;
+    height:500px;
+    justify-content: center;
+    padding: 0 0;
+    margin: auto;
+}
+.image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    display: flex;
+}
+
+.boxed{
+    margin: 5px 25%;
 }

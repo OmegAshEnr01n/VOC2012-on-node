@@ -9,13 +9,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "base64-img": "^1.0.4",
     "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.15.6",
+    "image-to-base64": "^2.0.1",
     "multer": "^1.4.1",
+    "shelljs": "^0.8.3",
     "socket.io": "^2.2.0"
   }
 }
