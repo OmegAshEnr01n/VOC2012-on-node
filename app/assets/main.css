@@ -33,6 +33,23 @@ html, body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.wall-back{
+    background-image: url("images/wall.jpg");
+    position: absolute;
+
+    width: 100%;
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    transform: scale(1.1);
+    /* Full height */
+    height: 1080px; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+}
 .back{
     position: relative;
 }
@@ -110,4 +127,41 @@ button.upload{
 
 .boxed{
     margin: 5px 25%;
+}
+
+.big-button{
+    height: 100%;
+    width: 100%;
+    color: aliceblue;
+}
+.big-button a{
+    color: aliceblue;
+}
+.big-button:hover a{
+    color: black;
+}
+
+.big-button:hover{
+    border: 1px solid white;
+    border-radius: 2px;
+    background: aliceblue;
+    color: black;
+}
+
+.browser-btn{
+    padding: 10px 15%;
+}
+
+.floater{
+    padding: 20px;
+}
+
+.card{
+    border: 0;
+    background: transparent;
+
+}
+
+.img{
+    box-shadow: 2px -1px 20px 0px #49a0a2;
 }

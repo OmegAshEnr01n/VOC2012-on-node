@@ -1,0 +1,36 @@
+<div class="back">
+
+    <div class="container-fluid">
+        <% for (var i = 0; i < 50; i +=3) { %>
+        <div class="card-group">
+            <div class="card">
+                <div class="floater">
+                    <div class="img">
+                        <img class="card-img-top" src="<%= imgs[i] %>" alt="Card image cap">
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="floater">
+                    <div class="img">
+                        <img class="card-img-top" src="<%= imgs[i+1] %>" alt="Card image cap">
+                    </div>
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="floater">
+                    <div class="img">
+                        <img class="card-img-top" src="<%= imgs[i+2] %>" alt="Card image cap">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <% } %>
+
+    </div>
+</div>
