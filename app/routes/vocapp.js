@@ -167,7 +167,8 @@ router.get(
          
             for(i = 0; i < 50; i++){
                 item = data[i];
-                var image = base64Img.base64Sync(item.img);
+                
+                var image = base64Img.base64Sync(path.join(req.session.WD,'JPEGImages',item.img));
                 imgs.push(image);
                 
             }
