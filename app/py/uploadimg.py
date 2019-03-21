@@ -123,7 +123,7 @@ class_names = [
             'tvmonitor'
         ]
 s2 = 0
-with open(sys.argv[2]+'_res.txt','a') as the_file:
+with open(osp(sys.argv[2])+'_res.txt','a') as the_file:
     for i, cl in enumerate(class_names):
         the_file.write(cl + ' ' + str(outputs[0,i].item()/sum.item())+'\n')
         s2 += outputs[0,i].item()/sum.item()
