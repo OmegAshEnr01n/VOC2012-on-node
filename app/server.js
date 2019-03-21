@@ -7,7 +7,7 @@ var bodyParser = require('body-parser')
 var routes = require('./routes/index');
 var vocapp = require('./routes/vocapp');
 var multer = require('multer');
-
+var fs = require('fs');
 
 var app = express();
 
@@ -22,10 +22,16 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 
 app.use('/',express.static(path.join(__dirname,'assets')));
-app.use('/vocapp',express.static(path.join(__dirname,'assets')));
 // Spend a lot of time on this. So I think every miniapp need to provide the virtual links to assets
 
-
+var uploads = path.join(__dirname,'public');
+if(!fs.existsSync(uploads)){
+    fs.mkdirSync(uploads);
+    var files = path.join(__dirname,'public','files');
+    if(!fs.existsSync(files)){
+        fs.mkdirSync(files);
+    }
+}
 
 
 app.use(session({
